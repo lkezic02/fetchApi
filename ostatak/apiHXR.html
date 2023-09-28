@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>API XHR</h1>
+        <table id="responseTable" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Tagline</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Prikaz podataka -->
+            </tbody>
+        </table>
+
+        <script>
+
+            //dohvaćanje api-ja
+            var request = new XMLHttpRequest();
+            request.open("GET", "https://api.punkapi.com/v2/beers", true);
+
+            //
+            request.onload = function () {
+                if (request.status === 200) {
+                    var responseData = JSON.parse(request.responseText);
+                    var tableBody = document
+                        .getElementById("responseTable")
+                        .getElementsByTagName("tbody")[0];
+
+                    for (var i = 0; i < responseData.length; i++) {
+                        var row = tableBody.insertRow(i);
+
+                        var idCell = row.insertCell(0);
+                        var titleCell = row.insertCell(1);
+                        var completedCell = row.insertCell(2);
+                        var descriptionCell = row.insertCell(3);
+                        var imageCell = row.insertCell(4);
+                        var volumeCell = row.insertCell(5);
+
+
+                        idCell.innerHTML = responseData[i].id;
+                        titleCell.innerHTML = responseData[i].name;
+                        completedCell.innerHTML = responseData[i].tagline;
+                        descriptionCell.innerHTML = responseData[i]. description;
+                        volumeCell.innerHTML = responseData[i].volume.value;
+
+                        let img = document.createElement("img");
+                        img.src = responseData[i].image_url;
+                        imageCell.appendChild(img);
+
+                        //ili
+
+                        // imageCell.innerHTML = `<img src="${responseData[i].image_url}" 
+                        // alt="${responseData[i].name}">';
+                    }
+                } else {
+                    console.error("Greška " + request.status);
+                }
+            };
+
+            request.send();
+        </script>
+    </body>
+
+</html>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText -->

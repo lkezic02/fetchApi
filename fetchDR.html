@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="apiFetch.css">
+</head>
+<body>
+    <button id="search">Ćapaj podatke</button>
+
+    <table id="responseTable">
+        <thead>
+            <tr>
+                <td>Ime koktela</td>
+                <td>Priprema koktela</td>
+                <td>Sastojci</td>
+                <td>Slika</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ovdje ide tekst -->
+        </tbody>
+    </table>
+
+    <script src="fetchDR.js"></script>
+    
+</body>
+</html>
+
+<!--  // var button = document.getElementById("search");
+
+// button.addEventListener('click', () => {
+//     const urlAPI = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';   //api link
+
+// //dohvaćanje api-ja preko fetch i then promisea
+
+//      fetch(urlAPI)
+//         .then((response) => response.json())
+//         .then((data) => {
+//             const tbody = document.getElementById("responseTable").getElementsByTagName("tbody")[0];
+//             tbody.innerHTML = "";
+
+//             data.drinks.forEach((element) => {
+            
+//                 //novi red
+//                 const row = document.createElement("tr");
+
+//                 //kreiramo i dohvaćamo stupac
+//                 const imeKoktela = document.createElement("td");
+//                 imeKoktela.innerText = element.strDrink;
+//                 row.appendChild(imeKoktela);
+
+//                 const pripremaKoktela = document.createElement("td");
+//                 pripremaKoktela.innerText = element.strInstructions;
+//                 row.appendChild(pripremaKoktela);
+                
+//                 //sastojci koktela-array
+//                  const sastojciKoktela = [];
+//                 for (let i = 1; i <= 15; i++) {
+//                     let sastojci = element["strIngredient" + i];
+//                     if (sastojci) {
+//                         sastojciKoktela.push(sastojci);
+//                     }
+//                 }
+//                 //dodavanje arraya u tablicu
+//                 const koktelSastojci = document.createElement("td");
+//                 koktelSastojci.innerText = sastojciKoktela.join(", ");
+//                 row.appendChild(koktelSastojci);
+                 
+
+//                 const imgKoktela = document.createElement("img");
+//                 imgKoktela.src = element.strImageSource; // Postavite izvor slike na URL iz podataka
+//                 imgKoktela.alt = element.strImageAttribution; // Postavite alt tekst na ime koktela
+//                 const imgCell = document.createElement("td");
+//                 imgCell.appendChild(imgKoktela);
+//                 row.appendChild(imgCell);
+
+                
+//             });
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         });
+
+// });
+-->
